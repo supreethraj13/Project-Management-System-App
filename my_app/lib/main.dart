@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Pages/Sign_in_page.dart';
+import 'package:my_app/Pages/Splash.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.montserratTextTheme(),
+      ),
       title: 'Project Manager',
-      home: SignInPage(),
+      home: const SplashPage(),
     );
   }
 }

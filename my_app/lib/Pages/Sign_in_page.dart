@@ -16,7 +16,7 @@ class _SignInPageState extends State<SignInPage> {
       backgroundColor: Colors.blue,
       body: Center(
         child: Container(
-          height: 500,
+          height: 400,
           width: 350,
           margin: EdgeInsets.all(25),
           padding: EdgeInsetsDirectional.all(25),
@@ -25,7 +25,10 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Welcome Back'),
+              const Text(
+                'Welcome Back',
+                style: TextStyle(fontSize: 35),
+              ),
               TextField(
                 decoration: InputDecoration(
                     hintText: 'Username',
@@ -47,18 +50,27 @@ class _SignInPageState extends State<SignInPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => Home_Page()));
                   },
-                  child: Text('Login')),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(fontSize: 16),
+                  )),
               TextButton(onPressed: () {}, child: Text('Forgot Passward?')),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Don\'t have an account?'),
+                  const Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(fontSize: 16),
+                  ),
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SignUpPage()));
                       },
-                      child: Text('Register')),
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(fontSize: 16),
+                      )),
                 ],
               )
             ],

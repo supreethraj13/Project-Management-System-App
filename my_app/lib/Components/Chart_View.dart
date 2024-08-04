@@ -7,8 +7,15 @@ class ChartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          title: Text('Chart'),
+        const ListTile(
+          title: Text('Chart',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+        ),
+        Container(
+          height: 350,
+          width: 350,
+          color: Colors.amber,
+          child: Center(child: Text('Chart')),
         ),
       ],
     );

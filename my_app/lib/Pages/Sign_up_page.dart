@@ -15,16 +15,19 @@ class _SignUpPageState extends State<SignUpPage> {
       backgroundColor: Colors.blue,
       body: Center(
         child: Container(
-          height: 500,
+          height: 400,
           width: 350,
-          margin: EdgeInsets.all(25),
-          padding: EdgeInsetsDirectional.all(25),
+          margin: const EdgeInsets.all(25),
+          padding: const EdgeInsetsDirectional.all(25),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25), color: Colors.white),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Sign Up'),
+              const Text(
+                'Sign Up',
+                style: TextStyle(fontSize: 35),
+              ),
               TextField(
                 decoration: InputDecoration(
                     hintText: 'Username',
@@ -54,17 +57,26 @@ class _SignUpPageState extends State<SignUpPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => SignInPage()));
                   },
-                  child: Text('Sign Up')),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 16),
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Already have an account?'),
+                  const Text(
+                    'Already have an account?',
+                    style: TextStyle(fontSize: 16),
+                  ),
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SignInPage()));
                       },
-                      child: Text('Sign In')),
+                      child: const Text(
+                        'Sign In',
+                        style: TextStyle(fontSize: 16),
+                      )),
                 ],
               )
             ],
