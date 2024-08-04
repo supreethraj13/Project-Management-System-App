@@ -11,7 +11,21 @@ class Notes extends StatefulWidget {
 
 class _NotesState extends State<Notes> {
   List<Note> Note_list = [
-    Note('1', 'title', 'content'),
+    Note(
+      id: '1',
+      title: 'Note 1',
+      content: 'Content of Note 1',
+    ),
+    Note(
+      id: '2',
+      title: 'Note 2',
+      content: 'Content of Note 2',
+    ),
+    Note(
+      id: '3',
+      title: 'Note 3',
+      content: 'Content of Note 3',
+    ),
   ];
 
   void _ShowNewNotesTab(BuildContext context) {
@@ -23,7 +37,8 @@ class _NotesState extends State<Notes> {
   }
 
   void _AddNewNote(String title, String content) {
-    final newNote = Note(DateTime.now().toString(), title, content);
+    final newNote =
+        Note(id: DateTime.now().toString(), title: title, content: content);
     setState(() {
       Note_list.add(newNote);
     });

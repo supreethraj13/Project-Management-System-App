@@ -10,6 +10,7 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  final users = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class _SignInPageState extends State<SignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Welcome Back',
                 style: TextStyle(fontSize: 35),
               ),
@@ -50,7 +51,7 @@ class _SignInPageState extends State<SignInPage> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => Home_Page()));
                   },
-                  child: const Text(
+                  child: Text(
                     'Login',
                     style: TextStyle(fontSize: 16),
                   )),
@@ -58,7 +59,7 @@ class _SignInPageState extends State<SignInPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'Don\'t have an account?',
                     style: TextStyle(fontSize: 16),
                   ),
@@ -67,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SignUpPage()));
                       },
-                      child: const Text(
+                      child: Text(
                         'Register',
                         style: TextStyle(fontSize: 16),
                       )),

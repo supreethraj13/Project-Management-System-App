@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_app/Pages/Sign_in_page.dart';
+import 'package:my_app/Pages/Home_Page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     Timer(
         const Duration(seconds: 2),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const SignInPage())));
+            MaterialPageRoute(builder: (context) => const Home_Page())));
   }
 
   // Splash Page Layout

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_app/Datatypes/Project_data_model.dart';
 
+
 class ProjectDetails extends StatefulWidget {
   final Projects tx;
   final Function Delete;
@@ -32,7 +33,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
           children: [
             // title
             Text(
-              widget.tx.Title,
+              widget.tx.title,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 75),
             ),
             Container(
@@ -41,7 +42,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
 
             //Description
             Text(
-              widget.tx.Description,
+              widget.tx.description,
               style: const TextStyle(fontSize: 18),
             ),
             Container(

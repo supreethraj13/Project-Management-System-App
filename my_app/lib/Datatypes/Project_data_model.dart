@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Projects {
-  final String Title;
-  final String Description;
+  final String title;
+  final String description;
   final String id;
   final Color color;
-  bool isDone = false;
+  bool isDone;
   final DateTime deadline;
 
-  Projects(
-    @required this.Title,
-    this.Description,
-    this.id,
-    @required this.color,
-    this.deadline,
-  );
+  Projects({
+    required this.title,
+    required this.description,
+    required this.id,
+    required this.color,
+    this.isDone = false,
+    required this.deadline,
+  });
 }

@@ -8,23 +8,15 @@ import '/Pages/Home_Page.dart';
 import '../Datatypes/Project_data_model.dart';
 
 class ProjectList extends StatefulWidget {
-  const ProjectList({super.key});
+  List<Projects> Project_List;
+
+  ProjectList(this.Project_List);
 
   @override
   State<ProjectList> createState() => _ProjectListState();
 }
 
 class _ProjectListState extends State<ProjectList> {
-  final List<Projects> Project_List = [
-    Projects(
-      'Project1',
-      'Task1',
-      'diaul',
-      Colors.blueAccent,
-      DateTime.now(),
-    ),
-  ];
-
   void _ShowNewProjectTab(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -36,16 +28,20 @@ class _ProjectListState extends State<ProjectList> {
   void _AddNewProject(
       String Title, String Description, Color color, DateTime deadline) {
     final newNote = Projects(
-        Title, Description, DateTime.now().toString(), color, deadline);
+        title: Title,
+        description: Description,
+        id: DateTime.now().toString(),
+        color: color,
+        deadline: deadline);
     setState(() {
-      Project_List.add(newNote);
+      widget.Project_List.add(newNote);
     });
     Navigator.pop(context);
   }
 
   void DeleteProject(String id) {
     setState(() {
-      Project_List.removeWhere((tx) => tx.id == id);
+      widget.Project_List.removeWhere((tx) => tx.id == id);
     });
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Home_Page()));
@@ -73,7 +69,7 @@ class _ProjectListState extends State<ProjectList> {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: Project_List.map((tx) {
+              children: widget.Project_List.map((tx) {
                 return Container(
                   margin: EdgeInsets.all(5),
                   height: 300,
@@ -102,7 +98,7 @@ class _ProjectListState extends State<ProjectList> {
                               size: 100,
                             ),
                             Text(
-                              tx.Title,
+                              tx.title,
                               style: TextStyle(fontSize: 48),
                               softWrap: true,
                             ),
