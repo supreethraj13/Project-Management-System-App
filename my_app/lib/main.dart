@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(),
       ),
-      title: 'Project Manager',
+      title: 'GoalChart',
       home: const SplashPage(),
     );
   }

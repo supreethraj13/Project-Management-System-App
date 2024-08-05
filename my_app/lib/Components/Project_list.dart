@@ -49,81 +49,85 @@ class _ProjectListState extends State<ProjectList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text(
-            'Projects',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          trailing: IconButton(
-            onPressed: () {
-              _ShowNewProjectTab(context);
-            },
-            icon: Icon(Icons.add),
-          ),
-        ),
-        // Project Display Card
-        Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: widget.Project_List.map((tx) {
-                return Container(
-                  margin: EdgeInsets.all(5),
-                  height: 300,
-                  width: 300,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(17),
-                    color: Colors.black,
-                  ),
-                  child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                ProjectDetails(tx, DeleteProject)));
-                      },
-                      child: Card(
-                        color: tx.color,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              tx.color == Colors.blueAccent
-                                  ? Icons.group
-                                  : tx.color == Colors.yellowAccent
-                                      ? Icons.work
-                                      : Icons.person,
-                              size: 100,
-                            ),
-                            Text(
-                              tx.title,
-                              style: TextStyle(fontSize: 48),
-                              softWrap: true,
-                            ),
-                            Text(
-                              tx.isDone == false ? 'Due' : 'Completed',
-                              style: TextStyle(fontSize: 24),
-                              softWrap: true,
-                            ),
-                            tx.isDone == false
-                                ? Text(
-                                    DateFormat.yMMMMd()
-                                        .add_jm()
-                                        .format(tx.deadline),
-                                    style: TextStyle(fontSize: 18),
-                                  )
-                                : Text('')
-                          ],
-                        ),
-                      )),
-                );
-              }).toList(),
+    return Card(
+      elevation: 6,
+      margin: EdgeInsets.all(5),
+      child: Column(
+        children: [
+          ListTile(
+            title: Text(
+              'Projects',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            trailing: IconButton(
+              onPressed: () {
+                _ShowNewProjectTab(context);
+              },
+              icon: Icon(Icons.add),
             ),
           ),
-        ),
-      ],
+          // Project Display Card
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: widget.Project_List.map((tx) {
+                  return Container(
+                    margin: EdgeInsets.all(5),
+                    height: 250,
+                    width: 250,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: Colors.black,
+                    ),
+                    child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  ProjectDetails(tx, DeleteProject)));
+                        },
+                        child: Card(
+                          color: tx.color,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                tx.color == Colors.blueAccent
+                                    ? Icons.group
+                                    : tx.color == Colors.yellowAccent
+                                        ? Icons.work
+                                        : Icons.person,
+                                size: 100,
+                              ),
+                              Text(
+                                tx.title,
+                                style: TextStyle(fontSize: 48),
+                                softWrap: true,
+                              ),
+                              Text(
+                                tx.isDone == false ? 'Due' : 'Completed',
+                                style: TextStyle(fontSize: 24),
+                                softWrap: true,
+                              ),
+                              tx.isDone == false
+                                  ? Text(
+                                      DateFormat.yMMMMd()
+                                          .add_jm()
+                                          .format(tx.deadline),
+                                      style: TextStyle(fontSize: 18),
+                                    )
+                                  : Text('')
+                            ],
+                          ),
+                        )),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

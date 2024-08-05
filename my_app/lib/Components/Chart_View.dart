@@ -25,33 +25,46 @@ class _ChartViewState extends State<ChartView> {
           .toDouble(),
     };
 
-    return Container(
-      height: 300,
-      width: 300,
-      child: PieChart(
-        dataMap: dataMap,
-        animationDuration: Duration(milliseconds: 1000),
-        chartLegendSpacing: 32,
-        chartRadius: MediaQuery.of(context).size.width / 3.2,
-        colorList: colorList,
-        initialAngleInDegree: 0,
-        chartType: ChartType.ring,
-        ringStrokeWidth: 32,
-        legendOptions: LegendOptions(
-          showLegendsInRow: false,
-          legendPosition: LegendPosition.right,
-          showLegends: true,
-          legendTextStyle: TextStyle(
-            fontWeight: FontWeight.bold,
+    return Card(
+      elevation: 6,
+      margin: EdgeInsets.all(5),
+      child: Column(
+        children: [
+      ListTile(
+      title: Text(
+        'Dashboard',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),),
+          Container(
+            height: 300,
+            width: 300,
+            child: PieChart(
+              dataMap: dataMap,
+              animationDuration: Duration(milliseconds: 1000),
+              chartLegendSpacing: 32,
+              chartRadius: MediaQuery.of(context).size.width / 3.2,
+              colorList: colorList,
+              initialAngleInDegree: 0,
+              chartType: ChartType.ring,
+              ringStrokeWidth: 32,
+              legendOptions: LegendOptions(
+                showLegendsInRow: false,
+                legendPosition: LegendPosition.right,
+                showLegends: true,
+                legendTextStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              chartValuesOptions: ChartValuesOptions(
+                showChartValueBackground: true,
+                showChartValues: true,
+                showChartValuesInPercentage: false,
+                showChartValuesOutside: false,
+                decimalPlaces: 1,
+              ),
+            ),
           ),
-        ),
-        chartValuesOptions: ChartValuesOptions(
-          showChartValueBackground: true,
-          showChartValues: true,
-          showChartValuesInPercentage: false,
-          showChartValuesOutside: false,
-          decimalPlaces: 1,
-        ),
+        ],
       ),
     );
   }
