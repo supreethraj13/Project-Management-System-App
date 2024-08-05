@@ -14,7 +14,7 @@ class Home_Page extends StatefulWidget {
 
 class _Home_PageState extends State<Home_Page> {
   final List<Projects> Project_List = [
-    Projects(
+    /*Projects(
       title: 'Project 1',
       description: 'Description 1',
       id: '1',
@@ -34,7 +34,7 @@ class _Home_PageState extends State<Home_Page> {
       id: '3',
       color: Colors.yellowAccent,
       deadline: DateTime.now().add(Duration(days: 7)),
-    ),
+    ),*/  //was used as place holders during development
   ];
 
   @override

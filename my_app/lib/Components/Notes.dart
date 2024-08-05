@@ -11,7 +11,7 @@ class Notes extends StatefulWidget {
 
 class _NotesState extends State<Notes> {
   List<Note> Note_list = [
-    Note(
+    /*Note(
       id: '1',
       title: 'Note 1',
       content: 'Content of Note 1',
@@ -25,7 +25,7 @@ class _NotesState extends State<Notes> {
       id: '3',
       title: 'Note 3',
       content: 'Content of Note 3',
-    ),
+    ),*/   //was used as place holders during development
   ];
 
   void _ShowNewNotesTab(BuildContext context) {
@@ -53,46 +53,50 @@ class _NotesState extends State<Notes> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: const Text(
-            'Notes',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    return Card(
+      elevation: 6,
+      margin: EdgeInsets.all(5),
+      child: Column(
+        children: [
+          ListTile(
+            title: const Text(
+              'Notes',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            trailing: IconButton(
+              onPressed: () {
+                _ShowNewNotesTab(context);
+              },
+              icon: const Icon(Icons.add),
+            ),
           ),
-          trailing: IconButton(
-            onPressed: () {
-              _ShowNewNotesTab(context);
-            },
-            icon: const Icon(Icons.add),
-          ),
-        ),
-        Column(
-          children: Note_list.map((tx) {
-            return ListTile(
-              title: Text(
-                tx.title,
-                style: const TextStyle(fontSize: 30),
-              ),
-              subtitle: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tx.content,
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
-              trailing: IconButton(
-                  onPressed: () {
-                    DeleteTask(tx.id);
-                  },
-                  icon: const Icon(Icons.delete)),
-            );
-          }).toList(),
-        )
-      ],
+          Column(
+            children: Note_list.map((tx) {
+              return ListTile(
+                title: Text(
+                  tx.title,
+                  style: const TextStyle(fontSize: 30),
+                ),
+                subtitle: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tx.content,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+                trailing: IconButton(
+                    onPressed: () {
+                      DeleteTask(tx.id);
+                    },
+                    icon: const Icon(Icons.delete)),
+              );
+            }).toList(),
+          )
+        ],
+      ),
     );
   }
 }

@@ -29,7 +29,7 @@ class _AddProjectPageState extends State<AddProjectPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(25),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Row(
